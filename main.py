@@ -1,3 +1,5 @@
+from keep_alive import keep_alive
+
 # the os module helps us access environment variables
 # i.e., our API keys
 import os
@@ -10,7 +12,7 @@ import requests
 import discord
 
 # this is my Hugging Face profile link
-API_URL = 'https://api-inference.huggingface.co/models/r3dhummingbird/'
+API_URL = 'https://api-inference.huggingface.co/models/loitran/'
 
 class MyClient(discord.Client):
     def __init__(self, model_name):
@@ -78,7 +80,9 @@ class MyClient(discord.Client):
 
 def main():
     # DialoGPT-medium-joshua is my model name
-    client = MyClient('DialoGPT-medium-joshua')
+    client = MyClient('DialoGPT-medium-peppapig')
+    #keep alive
+    keep_alive()
     client.run(os.environ['DISCORD_TOKEN'])
 
 if __name__ == '__main__':
